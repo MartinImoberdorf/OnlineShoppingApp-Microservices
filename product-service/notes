@@ -1,0 +1,3 @@
+En la parte de Test:
+Usamos TestContainers para usar un contenedor de MongoDB para pruebas.
+Usamos Assured para hacer las pruebas más legibles y fáciles de escribir.
