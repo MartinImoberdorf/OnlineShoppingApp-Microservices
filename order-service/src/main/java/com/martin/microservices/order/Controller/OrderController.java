@@ -20,6 +20,6 @@ public class OrderController {
     @ResponseStatus(HttpStatus.CREATED)
     public String placeOrder(@RequestBody OrderedRequest orderedRequest) {
         orderService.placeOrder(orderedRequest);
-        return "Order placed successfully";
+        return "Order Placed Successfully";
     }
 }
