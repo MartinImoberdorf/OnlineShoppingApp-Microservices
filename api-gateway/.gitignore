@@ -40,5 +40,5 @@ mysql/
 docker-compose.yml
 docker-compose.override.yml
 .docker/
-api-gateway/volumes-data/
+volumes-data/
 mysql.sock
