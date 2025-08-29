@@ -47,10 +47,10 @@ public class OrderService {
 
             // PASO 30
             // Enviar mensaje a kafka topic
-//            OrderPlacedEvent orderPlacedEvent = new OrderPlacedEvent(order.getOrderNumber(), orderedRequest.userDetails().email());
-//            log.info("Start - Sending OrderPlacedEvent {} to Kafka Topic order-placed", orderPlacedEvent);
-//            kafkaTemplate.send("order-placed", orderPlacedEvent);
-//            log.info("End - Sending OrderPlacedEvent {} to Kafka Topic order-placed", orderPlacedEvent);
+            OrderPlacedEvent orderPlacedEvent = new OrderPlacedEvent(order.getOrderNumber(), orderedRequest.userDetails().email());
+            log.info("Start - Sending OrderPlacedEvent {} to Kafka Topic order-placed", orderPlacedEvent);
+            kafkaTemplate.send("order-placed", orderPlacedEvent);
+            log.info("End - Sending OrderPlacedEvent {} to Kafka Topic order-placed", orderPlacedEvent);
 
 
         }
