@@ -5,10 +5,8 @@ import com.martin.microservices.order.dto.OrderedRequest;
 import com.martin.microservices.order.event.OrderPlacedEvent;
 import com.martin.microservices.order.model.Order;
 import com.martin.microservices.order.repository.OrderRepository;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.web.servlet.filter.OrderedRequestContextFilter;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
@@ -33,7 +31,6 @@ public class OrderService {
 
 
     public void placeOrder(OrderedRequest orderedRequest){
-
         var isProductInStock =inventoryClient.isInStock(orderedRequest.skuCode(), orderedRequest.quantity());
         if(isProductInStock){
             Order order = new Order();
@@ -44,14 +41,19 @@ public class OrderService {
             order.setQuantity(orderedRequest.quantity());
             // save order to orderRepository
             orderRepository.save(order);
-
+            log.info("OrderedRequest: {}", orderedRequest);
             // PASO 30
             // Enviar mensaje a kafka topic
-            OrderPlacedEvent orderPlacedEvent = new OrderPlacedEvent(order.getOrderNumber(), orderedRequest.userDetails().email());
+            var orderPlacedEvent = new OrderPlacedEvent(order.getOrderNumber(), orderedRequest.userDetails()
+                    .email(),
+                    orderedRequest.userDetails()
+                            .firstName(),
+                    orderedRequest.userDetails()
+                            .lastName());
+
             log.info("Start - Sending OrderPlacedEvent {} to Kafka Topic order-placed", orderPlacedEvent);
             kafkaTemplate.send("order-placed", orderPlacedEvent);
             log.info("End - Sending OrderPlacedEvent {} to Kafka Topic order-placed", orderPlacedEvent);
-
 
         }
         else{

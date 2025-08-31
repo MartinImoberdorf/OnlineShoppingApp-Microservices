@@ -1,7 +1,6 @@
 package com.martin.microservices.order.Controller;
 
 import com.martin.microservices.order.dto.OrderedRequest;
-import com.martin.microservices.order.model.Order;
 import com.martin.microservices.order.service.OrderService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
