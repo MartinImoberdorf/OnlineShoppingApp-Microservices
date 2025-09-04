@@ -3,6 +3,8 @@ package com.martin.microservices.order.config;
 import com.martin.microservices.order.client.InventoryClient;
 import io.micrometer.observation.ObservationRegistry;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,12 +16,13 @@ import org.springframework.web.service.invoker.HttpServiceProxyFactory;
 import java.time.Duration;
 
 @Configuration
-@AllArgsConstructor
 public class RestClientConfig {
     // agregamos inventory.url=http://localhost:8082 en application.properties
-    @Value("${inventory.url}")
+    @Value("${inventory.service.url}")
     private String inventoryServiceUrl;
-    private final ObservationRegistry observationRegistry;
+
+    @Autowired
+    private ObservationRegistry observationRegistry;
 
     @Bean
     public InventoryClient inventoryClient(){
