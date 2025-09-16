@@ -16,6 +16,10 @@
 
 ---
 
+<h2 align="center">
+<font color="red">🚧 The project is still under <b>ACTIVE DEVELOPMENT</b> 🚧</font>
+</h2>
+
 ## 📝 Overview
 
 **Online Shopping App** is a modern **e-commerce application** built with a **microservices architecture** using **Spring Boot**, containerized with **Docker**, and orchestrated with **Kubernetes**.  
