@@ -1,4 +1,4 @@
-<h1 align="center">🛒 Online Shopping App - Microservices with Kubernetes</h1>
+<h1 align="center">🛒 Online Shopping App - Microservices</h1>
 
 <p align="center">
  <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white" />
@@ -22,7 +22,7 @@
 
 ## 📝 Overview
 
-**Online Shopping App** is a modern **e-commerce application** built with a **microservices architecture** using **Spring Boot**, containerized with **Docker**, and orchestrated with **Kubernetes**.  
+**Online Shopping App** is a modern **e-commerce application** built with a **microservices architecture** using **Spring Boot**, containerized with **Docker**.  
 
 The system secures authentication and authorization with **Keycloak**, handles both **synchronous and asynchronous communication** between services (via **REST** and **Kafka**), and implements full **observability** using the **Grafana Stack**.
 
@@ -52,7 +52,7 @@ This architecture demonstrates key microservices patterns and best practices:
 - ✅ **Circuit Breaker** in Order Service using **Resilience4j** and Spring Boot Actuator  
 - ✅ **Kafka + Avro** for asynchronous event-driven communication  
 - ✅ **Swagger UI** for API documentation  
-- ✅ **Docker & Kubernetes** for containerization and orchestration  
+- ✅ **Docker** for containerization  
 - ✅ **Prometheus, Grafana, Loki & Tempo** for monitoring, centralized logging, and distributed tracing  
 - ✅ **Mailtrap integration** for testing notification emails  
 
